@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
+    [SerializeField] private Vector2 boundary;
 
     void Update()
     {
@@ -12,6 +13,14 @@ public class PlayerController : MonoBehaviour
         translation *= moveSpeed;
         translation *= Time.deltaTime;
 
-        transform.Translate(translation);
+        Vector3 boundaryCheck = transform.position + new Vector3(translation.x, translation.y, 0);
+
+        if (boundaryCheck.x < boundary.x && 
+            boundaryCheck.x > -boundary.x && 
+            boundaryCheck.y < boundary.y && 
+            boundaryCheck.y > -boundary.y)
+        {
+            transform.Translate(translation);
+        }
     }
 }

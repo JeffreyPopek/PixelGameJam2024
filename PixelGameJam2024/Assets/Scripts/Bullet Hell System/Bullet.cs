@@ -7,15 +7,19 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float lifetime = 100f;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float rotation = 0f;
+    [SerializeField] private float strength = 2f;
 
     private float timer = 0;
     
     private void Start()
     {
+        
     }
 
     private void Update()
     {
+        transform.Translate(Vector3.up * speed * Time.deltaTime);
+
         if (timer > lifetime)
         {
             gameObject.SetActive(false);
