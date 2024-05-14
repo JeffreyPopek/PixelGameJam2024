@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5151185120192116041}
   - component: {fileID: 4418035082110909169}
   - component: {fileID: 8668609151234968101}
-  - component: {fileID: -8387141736783650907}
   - component: {fileID: -7825760652690958911}
   m_Layer: 0
   m_Name: BulletTest
@@ -100,35 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 100
-  speed: 1
+  speed: 2
   rotation: 0
---- !u!50 &-8387141736783650907
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7199137653272278722}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  strength: 2
 --- !u!58 &-7825760652690958911
 CircleCollider2D:
   m_ObjectHideFlags: 0
