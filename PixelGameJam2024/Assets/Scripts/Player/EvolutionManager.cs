@@ -1,18 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EvolutionManager : MonoBehaviour
 {
+    // 0 - Tadpole
+    // 1 - Froglet
+    // 2 - Frog
     private int evoState = 0;
+    private bool isImmune = false;
+    [SerializeField] private float immunityTimeMax = 3.0f;
+    private float immunityTimer = 0.0f;
 
     public int GetEvoState() { return evoState; }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Update()
+    {
+        if (immunityTimer < immunityTimeMax)
+        {
+            immunityTimer += Time.deltaTime;
+        }
+        else if (isImmune)
+        {
+            isImmune = false;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            evoState--;
+            if (isImmune)
+            {
+                evoState--;
+                isImmune = true;
+                immunityTimer = 0.0f;
+            }
         }
         else if (other.gameObject.CompareTag("Powerup"))
         {

@@ -19,7 +19,6 @@ public class Bullet : MonoBehaviour
         if (timer > lifetime)
         {
             gameObject.SetActive(false);
-            Debug.Log("Bullet lifetime expired");
         }
         timer += Time.deltaTime;
     }
@@ -30,18 +29,14 @@ public class Bullet : MonoBehaviour
         if (col.gameObject.CompareTag("Wall"))
         {
             gameObject.SetActive(false);
-            Debug.Log("Hit Wall");
         }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Hit Wall");
-
         if (col.gameObject.CompareTag("Wall"))
         {
             gameObject.SetActive(false);
-            Debug.Log("Destroying Bullet");
         }
     }
 }
